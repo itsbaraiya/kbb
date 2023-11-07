@@ -1,0 +1,187 @@
+/****************************************************************************
+ * Fonts
+ ***************************************************************************/
+
+@font-face {
+  font-family: 'Muli Regular';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/Mulish/Mulish-Regular.woff2') format('woff2'),
+    url('../fonts/Mulish/Mulish-Regular.woff') format('woff'),
+}
+
+@font-face {
+  font-family: 'Muli Bold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/Mulish/Mulish-Bold.woff2') format('woff2'),
+    url('../fonts/Mulish/Mulish-Bold.woff') format('woff'),
+
+}
+
+@font-face {
+  font-family: 'Montserrat Extrabold';
+  src: url('../fonts/Montserrat/Montserrat-ExtraBold.woff') format('woff');
+  src: url('../fonts/Montserrat/Montserrat-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat ExtraboldItalic';
+  src: url('../fonts/Montserrat/Montserrat-ExtraBoldItalic.woff') format('woff');
+  src: url('../fonts/Montserrat/Montserrat-ExtraBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'MontSerrat Regular';
+  src: url('../fonts/Montserrat/Montserrat-Regular.woff') format('woff');
+  src: url('../fonts/Montserrat/Montserrat-Regular.woff2') format('woff2');
+}
+
+
+
+/****************************************************************************
+  Body
+ ***************************************************************************/
+body {
+  overflow-x: hidden;
+}
+
+p {
+  @extend %fontsize14;
+  font-family: 'Muli Regular';
+  margin-bottom: 15px;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav-link {
+  @extend %fontsize20;
+  color: $primary-color;
+  font-family: 'Montserrat Extrabold';
+  text-transform: uppercase;
+
+}
+
+.dropdown-link {
+  @extend %fontsize12;
+  color: $primary-color;
+  font-family: 'MontSerrat Extrabold';
+  font-weight: 100;
+}
+
+.link-text {
+  &:hover {
+
+    color: $link-color;
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+}
+
+.dropdownItem {
+  font-family: 'Montserrat Regular';
+
+  &:hover {
+    color: $link-color;
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+}
+
+.dropdown-item {
+  color: $primary-color;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+/****************************************************************************
+  Links
+ ***************************************************************************/
+a {
+  @include transition(all, 0.2s, ease, 0s);
+  color: $secondary-color;
+  outline: none;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+
+:-moz-selection {
+  /* Code for Firefox */
+  background: $primary-color;
+  color: $text-color;
+}
+
+::selection {
+  background: $primary-color;
+  color: $secondary-color;
+}
+
+/****************************************************************************
+  Headings
+ ***************************************************************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat Extrabold';
+}
+
+h1 {
+  @extend %fontsize42;
+}
+
+h2 {
+  @extend %fontsize32;
+}
+
+h3 {
+  @extend %fontsize24;
+  font-style: italic;
+}
+
+h4 {
+  @extend %fontsize22;
+  color: $primary-color;
+  text-transform: uppercase;
+}
+
+h5 {
+  @extend %fontsize18;
+  color: $tretiary-color;
+
+}
+
+h6 {
+  @extend %fontsize17;
+}
+
+// p {
+
+//   font-family: 'Muli Regular';
+//   color: $tretiary-color;
+//   font-weight: $light-weight;
+// }
+
+.swiper-btn {
+  font-family: 'Muli Bold';
+}

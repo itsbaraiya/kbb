@@ -1,0 +1,206 @@
+.news {
+  padding: 0;
+
+  .news-container {
+    position: relative;
+    margin: 0 -15px;
+
+    .img-bg {
+      background: url('../images/news.png') center/cover no-repeat;
+      height: 40vh;
+      max-width: 100%;
+    }
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .news-btn {
+      background: transparent;
+      margin-top: -80px;
+      outline: 2px solid $secondary-color;
+      position: absolute;      
+
+      @include absolute-center {
+        top: 105%;
+      }
+
+      ;
+    }
+  }
+
+  .bg-color {
+    background-color: rgba($primary-color, 0.8);
+    height: 60vh;
+  }
+
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      background-color: transparent;
+      border: 3px solid $secondary-color;
+      padding: 10px;
+      position: relative;
+    }
+
+    .swiper-pagination-bullet-active::before {
+      @include absolute-center;
+      background-color: $secondary-color;
+      border-radius: 50%;
+      content: '';
+      height: 10px;
+      position: absolute;
+      width: 10px;
+    }
+  }
+}
+
+.news-swiper {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+
+  a {
+    color: $link-color;
+    padding-bottom: 35px;
+  }
+}
+
+.swiper-container {
+  overflow: hidden;
+  padding: 10px;
+  width: 100%;
+
+  .swiper-pagination {
+    top: 105% !important;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Optionally style the input field */
+input[type="date"] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  color: $date-color;  
+}
+
+label {
+  bottom: 5px;
+  position: absolute;
+  right: 10px;
+
+  :focus{ 
+    border: none;
+  }
+}
+
+.swiper-slide {
+  background-color: $secondary-color;
+  height: 320px;
+  padding: 20px 27px;
+  width: 300px !important;
+
+  h6 {
+    @include border;
+    position: relative;
+  }
+
+  p {
+    padding-top: 30px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .news {
+    position: relative;
+  }
+
+  .swiper-slide {
+    height: 400px;
+    margin: 6px;
+  }
+
+  .news-btn {
+    top: 50%;
+  }
+
+  .news-container {
+    &.no-slider {
+    .swiper-wrapper{ 
+      display: flex;
+      justify-content: center;
+    }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .news {
+    .swiper-slide {
+      p {
+        @extend %fontsize16;
+      }
+    }
+  }
+  .news-container {
+    &.no-slider {
+      .news-swiper {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-up(xxl) {
+  .news {
+    padding-top: 80px;
+    position: relative;
+
+    .news-container {
+      @include display(flex, center, center);
+      position: relative;
+
+      &.no-slider {
+        .news-swiper {
+          @include absolute-center {
+            left: 47%;
+          }
+
+          ;
+        }
+      }
+
+      .bg-color {
+        height: 60vh;
+        width: 45%;
+      }
+
+      .img-bg {
+        height: 70vh;
+        width: 100%;
+      }
+
+      .news-btn {
+        left: 90%;
+        top: 60%;
+      }
+    }
+  }
+  .swiper-slide {
+    height: 350px !important;
+    width: 350px !important;
+    margin-right: 15px;
+  }
+}

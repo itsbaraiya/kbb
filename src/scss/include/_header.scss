@@ -1,0 +1,361 @@
+// // // /*******************************************************************************
+// // // * PAGE HEADER
+// // // *******************************************************************************/
+
+header {
+  min-height: 80px;
+  padding: 15px;
+  position: fixed;  
+  top: 0;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+
+  .page-header {
+    @include display(flex, space-between, center);
+
+    .brand-logo {
+      max-width: 150px;
+    }
+
+    .content {
+      @include display(flex, space-between, center);
+
+      .menu-trigger {
+        @include transition(all, 0.2s, ease, 0s);
+        cursor: pointer;
+        height: 21px;
+        opacity: 1;
+        padding: 0;
+        right: 0;
+        top: 15px;
+        width: 28px;
+        z-index: 3;
+
+        &.active {
+          .bars {
+            background-color: $primary-color;
+          }
+        }
+
+        .bars {
+          @include transition(all, 0.2s, ease, 0s);
+          background-color: $secondary-color;
+          border-radius: 0;
+          height: 3px;
+          margin-bottom: 6px;
+          width: 100%;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        &.menu--open {
+          .bars {
+            &:first-child {
+              transform: translateY(9px) rotate(136deg);
+            }
+
+            &:last-child {
+              transform: translateY(-9px) rotate(-136deg);
+            }
+
+            &:nth-child(2) {
+              transform: scale(0);
+            }
+          }
+        }
+      }
+
+      .search {
+        position: relative;
+        margin-right: 15px;
+        cursor: pointer;
+
+        &:hover {   
+         .search-tab { 
+            display: block;
+          }
+        }
+
+        .colored-part {
+          background-color: $counter-color;
+          border-radius: 4px 4px 0 0;
+          height: 5px;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+
+        .search-tab {
+          background-color: $secondary-color;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          color: $primary-color;
+          display: none;
+                    
+          left: 40%;
+          padding: 15px;
+          position: absolute;
+          top: 80px;
+          transform: translate(-50%, -50%);
+
+          z-index: 1;
+
+          input {
+            border: 1px solid $date-color;
+            border-radius: 50px;                       
+            color: $text-color;
+            height: 42px;
+          
+            ::placeholder { 
+              color: $date-color;  
+            }
+          }
+          
+          .search-icon2 { 
+            position: absolute;
+            right: 23px;
+            top: 25px;
+            height: 20px;
+          }
+
+          &::before {
+            border-color: transparent transparent $counter-color;
+            border-style: solid;
+            border-width: 0 8px 8px;
+            content: '';
+            left: 50%;
+            position: absolute;
+            top: -5px;
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      .language {
+        cursor: pointer;
+        margin-right: 15px;
+        position: relative;
+
+        &:hover {
+          .popover-content {
+            display: block;
+          }
+        }
+
+        .popover-content {
+          background-color: $secondary-color;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          color: $primary-color;
+          display: none;
+          left: 50%;
+          position: absolute;
+
+          top: 50px;
+          transform: translateX(-50%);
+          z-index: 1;
+
+          .colored-part {
+            background-color: $counter-color;
+            border-radius: 4px 4px 0 0;
+            height: 5px;
+            width: 100%;
+          }
+
+          &::before {
+            border-color: transparent transparent $counter-color;
+            border-style: solid;
+            border-width: 0 8px 8px;
+            content: '';
+            left: 50%;
+            position: absolute;
+            top: -5px;
+            transform: translateX(-50%);
+          }
+
+           > ul {
+            padding: 15px;
+          }
+        }
+
+
+      }
+    }
+
+    nav {
+      background-color: $secondary-color;
+      display: none;
+      height: 100vh;
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: -1;
+
+      &.menu--open {
+        display: block;
+      }      
+    }
+    nav > ul:nth-child(1){       
+        border-top: 1px solid $primary-color;
+        margin-top: 100px;
+        padding-bottom: 150px;
+        width: inherit;
+        z-index: 3;
+
+        .nav-link {
+          color: $primary-color;
+          line-height: 60px;
+          padding-left: 25px;
+
+          position: relative;
+          width: inherit;
+
+          @include navitem-border {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 3;
+          }
+          .dropdown-content{ 
+            display: none;
+          }
+
+          .dropdown-arrow {
+            position: absolute;
+            right: 35px;
+            top: 25px;
+
+            &.active {
+              @include rotate(180deg);
+              transition: all 0.3s ease;
+            }
+          }
+        }      
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  header {
+    height: 80px;
+
+    .page-header {
+      .menu-trigger {
+        display: none;
+      }
+
+      .content {
+        position: absolute;
+        right: 130px;
+      }
+
+      nav {
+        background-color: transparent;
+        display: block;
+        height: inherit;
+        padding: 10px;
+        position: initial;
+        width: fit-content;
+        z-index: 1;
+
+        > ul:nth-child(1) {
+          border-top: none;
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          right: 230px;
+          top: 10px;
+          width: fit-content;
+
+          .nav-link {
+            color: $secondary-color;
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 20px;
+            max-width: 150px;
+            position: relative;
+            z-index: 2;
+
+            &::after {
+              display: none;
+            }
+
+            &:hover .dropdown-content {
+              background-color: $secondary-color;
+              display: block;
+            }
+
+            .dropdown-list {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+            }
+
+            .dropdown-list ul {
+              list-style: none;
+              margin: 0;
+              padding: 0;
+            }
+          }
+        }
+
+        .dropdown-content {
+          background-color: $secondary-color;
+          border-radius: 4px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          color: $primary-color;
+          display: none;
+          left: 50%;
+          padding: 15px;
+          position: absolute;
+          top: 60px;
+          transform: translateX(-50%);
+          z-index: 1;
+
+          .colored-part {
+            background-color: $counter-color;
+            border-radius: 4px 4px 0 0;
+            height: 5px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+          }
+
+          &::before {
+            border-color: transparent transparent $counter-color;
+            border-style: solid;
+            border-width: 0 8px 8px;
+            content: '';
+            left: 50%;
+            position: absolute;
+            top: -5px;
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      .dropdown-arrow {
+        display: none;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  header {
+    padding-right: 250px;
+    .brand-logo {
+      margin-left: 100px;
+    }
+  }
+}

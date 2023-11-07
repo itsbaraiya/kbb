@@ -1,0 +1,115 @@
+// //****************************************************************************
+// //  Font sizes extensions
+// //***************************************************************************/
+
+
+%fontsize42 {
+  font-size: 42px;
+  line-height: 32px;
+}
+
+%fontsize32 {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+%fontsize24 {
+  font-size: 24px;
+  line-height: 32px;
+  color: $secondary-color;
+}
+
+%fontsize22 {
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 100;
+}
+
+%fontsize20 {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+%fontsize18 {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+%fontsize17 {
+  font-size: 17px;
+  line-height: 21px;
+}
+
+
+%fontsize14 {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+%fontsize12{ 
+  font-size: 14px;
+  line-height: 24px;
+}
+@include media-breakpoint-up(lg) {
+  
+  %fontsize14 {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  %fotsize24 {
+    font-size: 26px;
+    line-height: 35px;
+  }
+
+}
+
+@include media-breakpoint-up(xl) {
+
+  %fontsize14 {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  %fontsize32 {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  
+  %fontsize20{ 
+    font-size: 20px;
+    line-height: 38px;
+  }
+
+  %fontsize18{ 
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  %fontsize16{ 
+    font-size: 16px;
+    line-height: 28px;
+  }
+}
+
+@include media-breakpoint-up(xxl){ 
+  %fontsize22{ 
+    font-size: 40px;
+    line-height: 49px;
+  }
+  
+  %fontsize18{ 
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  %fontsize32{ 
+    font-size: 49px;
+    line-height: 61px;
+  }
+
+  %fontsize42{ 
+    font-size: 58px;
+    line-height: 32px;
+  }
+}

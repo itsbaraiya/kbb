@@ -1,0 +1,209 @@
+.services {
+
+  h4,
+  p {
+    text-align: center;
+  }
+
+  h4 {
+    position: relative;
+
+
+    @include border {
+      height: 4px;
+      width: 30%;
+
+      @include absolute-center {
+        left: 50%;
+        top: 120%;
+      }
+    }
+  }
+
+  p {
+    padding-top: 30px;
+  }
+}
+
+.tabs-container {
+  padding: 30px 25px;
+
+  .tab-container {
+    padding-top: 40px;
+
+    h5 {
+      cursor: pointer;
+      position: relative;
+
+      &::before {
+        background-color: $date-color;
+        content: '';
+        height: 1px;
+        left: 22px;
+        position: absolute;
+        top: 50%;
+        transform: translate(-55px);
+        width: 31px;
+      }
+
+      &.active {
+        &::before {
+          background-color: $counter-color;
+          height: 2px;
+        }
+      }
+    }
+
+    .tab-content {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+      padding: 25px;
+
+      p {
+        padding-top: 20px;
+        text-align: left;
+      }
+
+      h5 {
+        &::before {
+          display: none;
+        }
+      }
+
+      a {
+        background-color: transparent;
+        color: $button-bgColor;
+        outline: 2px solid $button-bgColor;
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-up(xl) {
+  .services {
+    margin-top: 60px;
+    padding: 0 0 300px;
+
+    .services-wrapper {
+      @include display(flex, center, center) {
+        flex-direction: column;
+      }
+    }
+
+    .heading-container {
+      p {
+        text-align: center;
+        width: 50%;
+      }
+
+      @include display(flex, center, center) {
+        flex-direction: column;
+      }
+
+
+    }
+
+    .tab-container:first-child .toggleTab::before,
+
+    {
+      content: none;
+  }
+
+  .tab-container:first-child h5 {
+    &.active::before {
+      display: none;
+    }
+  }
+
+  .tabs-container {
+    @include display(flex, center, center);
+    position: relative;
+    width: fit-content;
+
+      &::after,
+      &::before {
+        background-color: $date-color;
+        content: '';
+        height: 1px;
+        margin-top: 30px;
+        position: absolute;
+        width: 12%;
+      }
+
+      &::after {
+        right: -6%;
+      }
+
+      &::before {
+        left: -11%;
+      }
+
+      .tab-container {
+        margin-right: 30px;
+
+        h5 {
+          margin-right: 30px;
+          position: relative;
+
+          &::before {
+            left: 15px;
+          }
+
+          &.active {
+            &::before {
+              background-color: $date-color;
+              content: '';
+              height: 1px;
+            }
+
+            &::after {
+              background-color: $counter-color;
+              content: '';
+              height: 70px;
+              left: 50%;
+              position: absolute;
+              top: 35px;
+              width: 2px;
+            }
+          }
+        }
+
+        .tab-content {
+          background-color: $secondary-color;
+          left: 0;
+          position: absolute;
+          top: 200px;
+          width: 100%;
+          z-index: 1;
+     
+          p {
+            padding-top: 0;
+            width: 70%;
+          }
+
+          a {
+            position: absolute;
+            right: 100px;
+            top: 40%;
+            z-index: 2;
+          }
+        }
+      }
+    }
+ }
+
+
+  .img-div {
+    position: relative;
+
+    img {
+      position: absolute;
+      right: 0;
+      top: 60px;
+      z-index: -1;
+    }
+  }
+}
+
+

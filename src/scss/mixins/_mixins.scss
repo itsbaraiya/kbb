@@ -1,0 +1,112 @@
+// Inlineblock
+@mixin inline-block() {
+  *display: inline;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+}
+
+// ----------------------------------------------------------------------
+// Transitions
+// ----------------------------------------------------------------------
+// example: @include single-transition(background, 1s, ease-in-out, 0);
+
+@mixin transition($property, $duration, $timing-function, $delay) {
+  transition: $property $duration $timing-function $delay;
+}
+
+
+// generic transform
+@mixin transform($transforms...) {
+  transform: $transforms;
+}
+
+// rotate
+@mixin rotate($deg) {
+  @include transform(rotate($deg));
+}
+
+
+// --------------------------------------------------
+// Flexbox SASS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+@mixin border {
+  &::after {
+    position: absolute;
+    content: '';
+    width: 60%;
+    background-color: $counter-color;
+    height: 4px;
+    top: 130%;
+    left: 50%;
+    flex: 1;
+    transform: translate(-50%, -50%);
+    @content;
+  }
+}
+
+@mixin absolute-center {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  @content;
+}
+
+@mixin navitem-border {
+  &::after {
+    background-color: $primary-color;
+    content: '';
+    height: 1px;
+
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    @content;
+  }
+}
+
+@mixin overflowY {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  @content;
+
+}
+
+@mixin display($value1, $value2, $value3) {
+  align-items: $value3;
+  display: $value1;
+  justify-content: $value2;
+  @content;
+}
+
+@mixin overlay {
+  &::after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    background-color: rgba($primary-color, 0.4);
+    @content;
+  }
+}

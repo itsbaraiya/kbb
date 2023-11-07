@@ -1,0 +1,17 @@
+/*******************************************************************************
+* General
+*******************************************************************************/
+.site-main {
+  margin-top: 66px;
+  position: relative;
+  z-index: 1;
+}
+
+.no-scrollbar {
+  overflow: hidden;
+}
+
+div p ~ p { 
+  color: $tretiary-color;
+  font-family: 'Muli Bold';
+}

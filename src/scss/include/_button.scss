@@ -1,0 +1,30 @@
+/*******************************************************************************
+* Button
+*******************************************************************************/
+.btn {
+  @extend %fontsize18;
+  @include transition(all, 0.2s, ease, 0s);
+  @include inline-block();
+  background-color: $link-color;
+  border: 0;
+  border-radius: 50px;  
+  box-shadow: none;
+  color: $secondary-color;
+  font-family: 'Muli Bold';
+  margin: 0;
+  outline: 0;
+  padding: 7px 15px;
+  text-decoration: none;
+  white-space: normal;
+  width: fit-content;
+
+  &:hover,
+  &:focus,
+  &:active {         
+    background-color: $secondary-color;
+    color: $link-color;
+    outline: 2px solid $link-color;
+    text-decoration: none;
+  }
+}
+

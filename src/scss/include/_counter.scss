@@ -1,0 +1,115 @@
+.counter-section {   
+  background: url('../images/counter.png') center/cover no-repeat;
+  padding: 45px 15px;
+  position: relative;
+  @include overlay;  
+
+  .counters {
+    position: relative;
+    z-index: 5;
+  }
+
+  .row {
+    margin-top: 35px;
+  }
+
+  h2 {
+    color: $counter-color;
+  }
+
+  h3 {
+    color: $secondary-color;
+  }
+
+  h1 {
+    color: $counter-color;
+
+    &::after {
+        content: '+';
+    }
+  }
+
+
+  .row::after {
+    clear: both;
+    content: '';
+    display: table;
+    white-space: pre;
+  }
+
+  [class*="col-"] {
+    width: 100%;
+  }
+
+  .tiles-box {
+    min-height: 100px;
+    padding: 25px 10px 7px;
+    width: 100%;
+  }
+
+  @include overlay {
+    height: 100%;
+  }  
+        ;
+}
+
+
+@include media-breakpoint-up(lg) {
+  .counter-section {
+    height: 50vh;
+    padding: 0 27px;
+
+    .counters {
+      padding: 45px 0;
+
+      h4 {
+        width: 50%;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: auto auto auto;
+
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .counter-section {
+    margin-bottom: 150px;
+
+    h1 {
+      width: 200px;
+    }
+
+    .counters {
+      @include display(flex, space-between, center);
+      width: 60%;
+
+      h2 {
+        padding-left: 30px;
+        width: 50%;
+      }
+
+      .row {
+        padding-right: 250px;
+        width: 20%;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .counter-section {
+    height: 100%;
+    padding-left: 180px;
+
+    .counters {
+      h2 {
+        left: 50%;
+        width: 50%;
+      }
+    }
+  }
+}
